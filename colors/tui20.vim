@@ -52,9 +52,9 @@ highlight VisualNOS ctermfg=1 ctermbg=NONE cterm=NONE
 
 highlight SpecialKey ctermfg=8 ctermbg=NONE cterm=NONE
 
-execute 'highlight DiffAdd ctermfg=0 cterm=NONE ctermbg=' . g:GitAddColor
-execute 'highlight DiffChange ctermfg=0 cterm=NONE ctermbg=' . g:GitChangeColor
-execute 'highlight DiffDelete ctermfg=0 cterm=NONE ctermbg=' . g:GitUntrackedColor
+execute 'highlight DiffAdd ctermfg=0 cterm=NONE ctermbg=' . s:GitAddColor
+execute 'highlight DiffChange ctermfg=0 cterm=NONE ctermbg=' . s:GitChangeColor
+execute 'highlight DiffDelete ctermfg=0 cterm=NONE ctermbg=' . s:GitUntrackedColor
 highlight DiffText ctermfg=0 ctermbg=4 cterm=NONE
 
 highlight Search ctermfg=0 ctermbg=3 cterm=NONE
@@ -140,9 +140,9 @@ highlight link NERDTreeGitStatusUnmerged SignifySignDelete
 highlight link NERDTreeGitStatusIgnored SignifySignDelete
 
 " vim-signify
-execute 'highlight SignifySignAdd ctermbg=NONE cterm=NONE ctermfg=' . g:GitAddColor
-execute 'highlight SignifySignChange ctermbg=NONE cterm=NONE ctermfg=' . g:GitChangeColor
-execute 'highlight SignifySignDelete ctermbg=NONE cterm=NONE ctermfg=' . g:GitUntrackedColor
+execute 'highlight SignifySignAdd ctermbg=NONE cterm=NONE ctermfg=' . s:GitAddColor
+execute 'highlight SignifySignChange ctermbg=NONE cterm=NONE ctermfg=' . s:GitChangeColor
+execute 'highlight SignifySignDelete ctermbg=NONE cterm=NONE ctermfg=' . s:GitUntrackedColor
 
 
 " }}}
