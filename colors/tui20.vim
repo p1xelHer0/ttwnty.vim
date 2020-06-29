@@ -18,36 +18,36 @@ let g:colors_name = 'tui20'
 
 " Syntax
 hi Normal ctermfg=7 ctermbg=NONE cterm=NONE
-  hi link Comment Normal
-  hi link Constant Normal
-  hi link Special Normal
-  hi link Identifier Normal
-  hi link Statement Normal
-  hi link PreProc Normal
-  hi link Type Normal
-  hi link Function Normal
-  hi link Repeat Normal
-  hi link Operator Normal
+  hi! link Comment Normal
+  hi! link Constant Normal
+  hi! link Special Normal
+  hi! link Identifier Normal
+  hi! link Statement Normal
+  hi! link PreProc Normal
+  hi! link Type Normal
+  hi! link Function Normal
+  hi! link Repeat Normal
+  hi! link Operator Normal
 
-  hi link String Normal
-  hi link Character Normal
-  hi link Number Normal
-  hi link Boolean Normal
-  hi link Float Normal
-  hi link Conditional Normal
-  hi link Label Normal
-  hi link Keyword Normal
-  hi link Include Normal
-  hi link Define Normal
-  hi link PreCondit Normal
-  hi link StorageClass Normal
-  hi link Structure Normal
-  hi link Typedef Normal
-  hi link Tag Normal
-  hi link SpecialChar Normal
-  hi link Delimiter Normal
-  hi link SpecialComment Normal
-  hi link Debug Normal
+  hi! link String Normal
+  hi! link Character Normal
+  hi! link Number Normal
+  hi! link Boolean Normal
+  hi! link Float Normal
+  hi! link Conditional Normal
+  hi! link Label Normal
+  hi! link Keyword Normal
+  hi! link Include Normal
+  hi! link Define Normal
+  hi! link PreCondit Normal
+  hi! link StorageClass Normal
+  hi! link Structure Normal
+  hi! link Typedef Normal
+  hi! link Tag Normal
+  hi! link SpecialChar Normal
+  hi! link Delimiter Normal
+  hi! link SpecialComment Normal
+  hi! link Debug Normal
 
 " Visual aid
 hi Visual cterm=reverse ctermbg=0
