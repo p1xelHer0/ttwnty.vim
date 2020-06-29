@@ -1,148 +1,147 @@
-set encoding=utf-8
-scriptencoding utf-8
+" File:         tui20.vim
+" URL:          https://github.com/p1xelHer0/tui20
+" Author:       Pontus Nagy <pontusnagy@gmail.com>
+" License:      MIT
 
-let g:colors_name = 'tui20'
-
-highlight clear
-
+set background=dark
+hi clear
 if exists('syntax_on')
   syntax reset
 endif
 
+" Diff colors loaded from git
+let &s:git_added = system('git config --list | grep added | grep -o -E "[0-8]"')
+let &s:git_changed = system('git config --list | grep changed | grep -o -E "[0-8]"')
+let &s:git_untracked = system('git config --list | grep untracked | grep -o -E "[0-8]"')
 
-set background=dark
+let g:colors_name = 'tui20'
 
-let s:GitAddColor = system('git config --list | grep added | grep -o -E "[0-8]"')
-let s:GitChangeColor = system('git config --list | grep changed | grep -o -E "[0-8]"')
-let s:GitUntrackedColor = system('git config --list | grep untracked | grep -o -E "[0-8]"')
+" Syntax
+hi Normal ctermfg=7 ctermbg=NONE cterm=NONE
+  hi link Comment Normal
+  hi link Constant Normal
+  hi link Special Normal
+  hi link Identifier Normal
+  hi link Statement Normal
+  hi link PreProc Normal
+  hi link Type Normal
+  hi link Function Normal
+  hi link Repeat Normal
+  hi link Operator Normal
 
-highlight Normal ctermfg=7 ctermbg=NONE cterm=NONE
-highlight NonText ctermfg=16 ctermbg=NONE cterm=NONE
-highlight EndOfBuffer ctermfg=0 ctermbg=NONE cterm=NONE
-highlight Comment ctermfg=20 ctermbg=NONE cterm=NONE
-highlight Constant ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Error ctermfg=0 ctermbg=1 cterm=NONE
-highlight ErrorMsg ctermfg=1 ctermbg=NONE cterm=NONE
-highlight Identifier ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Ignore ctermfg=0 ctermbg=8 cterm=NONE
-highlight PreProc ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Special ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Statement ctermfg=7 ctermbg=NONE cterm=NONE
-highlight String ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Number ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Todo ctermfg=0 ctermbg=2 cterm=NONE
-highlight Type ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Underlined ctermfg=1 ctermbg=NONE cterm=underline
+  hi link String Normal
+  hi link Character Normal
+  hi link Number Normal
+  hi link Boolean Normal
+  hi link Float Normal
+  hi link Conditional Normal
+  hi link Label Normal
+  hi link Keyword Normal
+  hi link Include Normal
+  hi link Define Normal
+  hi link PreCondit Normal
+  hi link StorageClass Normal
+  hi link Structure Normal
+  hi link Typedef Normal
+  hi link Tag Normal
+  hi link SpecialChar Normal
+  hi link Delimiter Normal
+  hi link SpecialComment Normal
+  hi link Debug Normal
 
-highlight MatchParen ctermfg=7 ctermbg=NONE cterm=underline,bold,italic
+" Visual aid
+hi Visual cterm=reverse ctermbg=0
+hi VisualNOS ctermfg=1 ctermbg=NONE cterm=NONE
+hi MatchParen ctermfg=7 ctermbg=NONE cterm=underline,bold,italic
+hi NonText ctermfg=16 ctermbg=NONE cterm=NONE
+hi Error ctermfg=0 ctermbg=1 cterm=NONE
+hi ErrorMsg ctermfg=1 ctermbg=NONE cterm=NONE
+hi WarningMsg ctermfg=0 ctermbg=1 cterm=NONE
+hi Todo ctermfg=0 ctermbg=2 cterm=NONE
+hi Underlined ctermfg=7 ctermbg=0 cterm=underline
+hi Ignore ctermfg=0 ctermbg=8 cterm=NONE
+hi SpecialKey ctermfg=0 ctermbg=8 cterm=NONE
 
-highlight LineNr ctermfg=18 ctermbg=0 cterm=NONE
-highlight CursorLineNr ctermfg=20 ctermbg=0 cterm=bold
-highlight CursorLine ctermfg=NONE ctermbg=16 cterm=NONE
-  highlight link FoldColumn CursorLineNr
+" Search
+hi Search ctermfg=0 ctermbg=3 cterm=NONE
+hi SearchInc ctermfg=0 ctermbg=3 cterm=NONE
+hi Directory ctermfg=4 ctermbg=NONE cterm=NONE
 
-highlight Folded ctermfg=8 ctermbg=NONE cterm=NONE
+" Statusline and prompt
+hi StatusLine ctermfg=8 ctermbg=0 cterm=NONE
+hi StatusLineNC ctermfg=16 ctermbg=0 cterm=NONE
+hi WildMenu ctermfg=3 ctermbg=0 cterm=NONE
+hi Question ctermfg=4 ctermbg=NONE cterm=NONE
+hi Title ctermfg=16 ctermbg=0 cterm=NONE
+hi ModeMsg ctermfg=4 ctermbg=NONE cterm=NONE
+hi MoreMsg ctermfg=2 ctermbg=NONE cterm=NONE
 
-highlight TermCursorNC ctermfg=0 ctermbg=3 cterm=NONE
-highlight Title ctermfg=7 ctermbg=NONE cterm=NONE
-highlight helpLeadBlank ctermfg=7 ctermbg=NONE cterm=NONE
-highlight helpNormal ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Visual cterm=reverse ctermbg=0
-highlight VisualNOS ctermfg=1 ctermbg=NONE cterm=NONE
+" Window and tabs
+hi VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE
+hi ColorColumn ctermfg=NONE ctermbg=NONE cterm=NONE
+hi EndOfBuffer ctermfg=20 ctermbg=NONE cterm=NONE
+hi TabLine ctermfg=4 ctermbg=NONE cterm=NONE
+hi TabLineFill ctermfg=4 ctermbg=NONE cterm=NONE
+hi TabLineSel ctermfg=4 ctermbg=NONE cterm=NONE
 
-highlight SpecialKey ctermfg=8 ctermbg=NONE cterm=NONE
+" Pmenu
+hi Pmenu ctermfg=7 ctermbg=16 cterm=NONE
+hi PmenuSel ctermfg=NONE ctermbg=3 cterm=NONE
+hi PmenuSbar ctermfg=NONE ctermbg=0 cterm=NONE
+hi PmenuThumb ctermfg=NONE ctermbg=4 cterm=NONE
 
-execute 'highlight DiffAdd ctermfg=0 cterm=NONE ctermbg=' . s:GitAddColor
-execute 'highlight DiffChange ctermfg=0 cterm=NONE ctermbg=' . s:GitChangeColor
-execute 'highlight DiffDelete ctermfg=0 cterm=NONE ctermbg=' . s:GitUntrackedColor
-highlight DiffText ctermfg=0 ctermbg=4 cterm=NONE
+" Cursor, lines and folds
+hi Cursor ctermfg=8 ctermbg=NONE cterm=NONE
+hi CursorLine ctermfg=NONE ctermbg=16 cterm=NONE
+hi CursorLineNr ctermfg=20 ctermbg=0 cterm=bold
+hi LineNr ctermfg=18 ctermbg=0 cterm=NONE
+hi TermCursorNC ctermfg=0 ctermbg=3 cterm=NONE
 
-highlight Search ctermfg=0 ctermbg=3 cterm=NONE
-  highlight! link SearchInc Search
-  highlight! link WildMenu Search
-  highlight! link TabLineSel Search
-  highlight! link PmenuSel Search
+" Column
+hi Folded ctermfg=8 ctermbg=NONE cterm=NONE
+hi FoldColumn ctermfg=20 ctermbg=NONE cterm=NONE
+hi CursorColumn ctermfg=8 ctermbg=NONE cterm=NONE
+hi SignColumn ctermfg=4 ctermbg=NONE cterm=NONE
 
-highlight StatusLine ctermfg=8 ctermbg=0 cterm=NONE
-highlight StatusLineNC ctermfg=8 ctermbg=0 cterm=NONE
+" Diff
+execute 'hi DiffAdd ctermfg=0 cterm=NONE ctermbg=' . s:git_added
+execute 'hi DiffChange ctermfg=0 cterm=NONE ctermbg=' . s:git_changed
+execute 'hi DiffDelete ctermfg=0 cterm=NONE ctermbg=' . s:git_untracked
+hi DiffText ctermfg=0 ctermbg=4 cterm=NONE
 
-highlight TabLine ctermfg=0 ctermbg=8 cterm=NONE
-highlight! link TabLineFill StatusLine
-
-highlight VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE
-
-highlight Pmenu ctermfg=7 ctermbg=16 cterm=NONE
-highlight PmenuSbar ctermfg=NONE ctermbg=0 cterm=NONE
-highlight PmenuThumb ctermfg=NONE ctermbg=4 cterm=NONE
-
-highlight Directory ctermfg=4 ctermbg=NONE cterm=NONE
-highlight ColorColumn ctermfg=0 ctermbg=4 cterm=NONE
-highlight signColumn ctermfg=4 ctermbg=NONE cterm=NONE
-highlight ModeMsg ctermfg=4 ctermbg=NONE cterm=NONE
-highlight MoreMsg ctermfg=2 ctermbg=NONE cterm=NONE
-highlight Question ctermfg=4 ctermbg=NONE cterm=NONE
-highlight WarningMsg ctermfg=0 ctermbg=1 cterm=NONE
-highlight Cursor ctermfg=8 ctermbg=NONE cterm=NONE
-highlight Structure ctermfg=7 ctermbg=NONE cterm=NONE
-highlight CursorColumn ctermfg=7 ctermbg=8 cterm=NONE
-highlight SpellBad ctermfg=0 ctermbg=1 cterm=NONE
-highlight SpellCap ctermfg=4 ctermbg=NONE cterm=underline
-highlight SpellLocal ctermfg=5 ctermbg=NONE cterm=underline
-highlight SpellRare ctermfg=6 ctermbg=NONE cterm=underline
-highlight Boolean ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Character ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Conditional ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Define ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Delimiter ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Float ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Include ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Keyword ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Label ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Operator ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Repeat ctermfg=7 ctermbg=NONE cterm=NONE
-highlight SpecialChar ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Tag ctermfg=7 ctermbg=NONE cterm=NONE
-highlight Typedef ctermfg=7 ctermbg=NONE cterm=NONE
-
-
-" }}}
-" =============================================================================
-" plugin colors {{{
-" =============================================================================
+" Spelling
+hi SpellBad ctermfg=0 ctermbg=1 cterm=NONE
+hi SpellCap ctermfg=4 ctermbg=NONE cterm=underline
+hi SpellLocal ctermfg=5 ctermbg=NONE cterm=underline
+hi SpellRare ctermfg=6 ctermbg=NONE cterm=underline
 
 " ALE
-highlight ALEError cterm=underline
-highlight link ALEErrorSign Error
-highlight ALEWarning cterm=underline
-highlight link ALEWarningSign Search
-
+" hi ALEError cterm=underline
+" hi link ALEErrorSign Error
+" hi ALEWarning cterm=underline
+"   hi link ALEWarningSign Search
 
 " coc.nvim
-
-highlight CocHighlightText ctermbg=17
+hi CocHighlightText ctermbg=17
 
 " fzf
-highlight default fzf1 ctermfg=0 ctermbg=3 guifg=NONE guibg=NONE
-highlight default fzf2 ctermfg=0 ctermbg=8 guifg=NONE guibg=NONE
-highlight default fzf3 ctermfg=0 ctermbg=8 guifg=NONE guibg=NONE
-
-" NERDTree
-highlight NERDTreeDirSlash ctermfg=4 ctermbg=NONE cterm=NONE
-highlight link NERDTreeBookmarksLeader NERDTreeDirSlash
-highlight NERDTreeExecFile ctermfg=7 ctermbg=NONE cterm=NONE
-
-highlight NERDTreeGitStatusStaged ctermfg=4 cterm=NONE
-
-highlight link NERDTreeGitStatusModified SignifySignChange
-highlight link NERDTreeGitStatusUntracked SignifySignDelete
-highlight link NERDTreeGitStatusRenamed SignifySignDelete
-highlight link NERDTreeGitStatusUnmerged SignifySignDelete
-highlight link NERDTreeGitStatusIgnored SignifySignDelete
+hi default fzf1 ctermfg=0 ctermbg=3 guifg=NONE guibg=NONE
+hi default fzf2 ctermfg=0 ctermbg=8 guifg=NONE guibg=NONE
+hi default fzf3 ctermfg=0 ctermbg=8 guifg=NONE guibg=NONE
 
 " vim-signify
-execute 'highlight SignifySignAdd ctermbg=NONE cterm=NONE ctermfg=' . s:GitAddColor
-execute 'highlight SignifySignChange ctermbg=NONE cterm=NONE ctermfg=' . s:GitChangeColor
-execute 'highlight SignifySignDelete ctermbg=NONE cterm=NONE ctermfg=' . s:GitUntrackedColor
+hi SignifySignAdd ctermfg=s:git_added? ctermbg=NONE cterm=NONE 
+hi SignifySignChange ctermfg=s:git_changed? ctermbg=NONE cterm=NONE 
+hi SignifySignDelete ctermfg=s:git_untracked? ctermbg=NONE cterm=NONE 
 
+" NERDTree
+hi NERDTreeDirSlash ctermfg=4 ctermbg=NONE cterm=NONE
+  hi link NERDTreeBookmarksLeader NERDTreeDirSlash
+hi NERDTreeExecFile ctermfg=7 ctermbg=NONE cterm=NONE
+  hi link NERDTreeGitStatusStaged SignifySignAdd
+  hi link NERDTreeGitStatusModified SignifySignChange
+  hi link NERDTreeGitStatusUntracked SignifySignDelete
+  hi link NERDTreeGitStatusRenamed SignifySignDelete
+  hi link NERDTreeGitStatusUnmerged SignifySignDelete
+  hi link NERDTreeGitStatusIgnored SignifySignDelete
 
-" }}}
