@@ -1,6 +1,6 @@
-" tui20.vim
+" ttwnty.vim
 " Author:       p1xelHer0
-" Webpage:      https://github.com/p1xelHer0/tui20
+" Webpage:      https://github.com/p1xelHer0/ttwnty.vim
 
 hi clear
 set background=dark
@@ -8,7 +8,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = 'tui20'
+let g:colors_name = 'ttwnty'
 
 " =============================================================================
 " default scheme {{{
