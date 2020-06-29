@@ -10,9 +10,9 @@ if exists('syntax_on')
 endif
 
 " Diff colors loaded from git
-let &s:git_added = system('git config --list | grep added | grep -o -E "[0-8]"')
-let &s:git_changed = system('git config --list | grep changed | grep -o -E "[0-8]"')
-let &s:git_untracked = system('git config --list | grep untracked | grep -o -E "[0-8]"')
+let s:git_added = system('git config --list | grep added | grep -o -E "[0-8]"')
+let s:git_changed = system('git config --list | grep changed | grep -o -E "[0-8]"')
+let s:git_untracked = system('git config --list | grep untracked | grep -o -E "[0-8]"')
 
 let g:colors_name = 'tui20'
 
@@ -130,9 +130,9 @@ hi default fzf2 ctermfg=0 ctermbg=8 guifg=NONE guibg=NONE
 hi default fzf3 ctermfg=0 ctermbg=8 guifg=NONE guibg=NONE
 
 " vim-signify
-hi SignifySignAdd ctermfg=s:git_added? ctermbg=NONE cterm=NONE 
-hi SignifySignChange ctermfg=s:git_changed? ctermbg=NONE cterm=NONE 
-hi SignifySignDelete ctermfg=s:git_untracked? ctermbg=NONE cterm=NONE 
+exe 'hi SignifySignAdd ctermbg=NONE cterm=NONE ctermfg=' . s:git_added
+exe 'hi SignifySignChange ctermbg=NONE cterm=NONE ctermfg=' . s:git_changed
+exe 'hi SignifySignDelete ctermbg=NONE cterm=NONE ctermfg=' . s:git_untracked
 
 " NERDTree
 hi NERDTreeDirSlash ctermfg=4 ctermbg=NONE cterm=NONE
