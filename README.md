@@ -1,3 +1,3 @@
-# tui20
+# ttwnty.vim
 
-`tui20` is a terminal vim color scheme
+`ttwnty` is a terminal vim color scheme
