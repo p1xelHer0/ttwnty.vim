@@ -3,6 +3,7 @@
 
 hi clear
 set background=dark
+
 if exists('syntax_on')
   syntax reset
 endif
@@ -10,11 +11,11 @@ endif
 let g:colors_name = 'ttwnty'
 
 " =============================================================================
-" default scheme {{{
+" Default scheme {{{
 " =============================================================================
 
 " -----------------------------------------------------------------------------
-" editor
+" Editor
 " -----------------------------------------------------------------------------
 hi Normal            ctermfg=7    ctermbg=NONE cterm=NONE
 hi CursorLine        ctermfg=NONE ctermbg=16   cterm=NONE
@@ -23,7 +24,7 @@ hi LineNr            ctermfg=18   ctermbg=0    cterm=NONE
 hi TermCursorNC      ctermfg=0    ctermbg=3    cterm=NONE
 
 " -----------------------------------------------------------------------------
-" language constructs
+" Language constructs
 " -----------------------------------------------------------------------------
 hi Statement         ctermfg=7    ctermbg=NONE cterm=NONE
 hi Conditional       ctermfg=7    ctermbg=NONE cterm=NONE
@@ -51,7 +52,7 @@ hi Typedef           ctermfg=7    ctermbg=NONE cterm=NONE
 hi StorageClass      ctermfg=7    ctermbg=NONE cterm=NONE
 hi Structure         ctermfg=7    ctermbg=NONE cterm=NONE
 
-" types
+" Types
 hi Constant          ctermfg=7    ctermbg=NONE cterm=NONE
 hi String            ctermfg=2    ctermbg=NONE cterm=NONE
 hi StringDelimeter   ctermfg=2    ctermbg=NONE cterm=NONE
@@ -63,7 +64,7 @@ hi Identifier        ctermfg=7    ctermbg=NONE cterm=NONE
 hi Function          ctermfg=7    ctermbg=NONE cterm=NONE
 
 " -----------------------------------------------------------------------------
-" visual aid
+" Visual aid
 " -----------------------------------------------------------------------------
 hi Visual                         ctermbg=0    cterm=reverse
 hi VisualNOS         ctermfg=1    ctermbg=NONE cterm=NONE
@@ -78,22 +79,29 @@ hi Ignore            ctermfg=0    ctermbg=8    cterm=NONE
 hi SpecialKey        ctermfg=0    ctermbg=8    cterm=NONE
 
 " -----------------------------------------------------------------------------
-" diff colors
+" Diff colors
 " -----------------------------------------------------------------------------
-hi DiffAdd           ctermfg=0    ctermbg=2    cterm=NONE
-hi DiffChange        ctermfg=0    ctermbg=3    cterm=NONE
-hi DiffDelete        ctermfg=0    ctermbg=4    cterm=NONE
-hi DiffText          ctermfg=2    ctermbg=0    cterm=bold
+hi DiffAdd            ctermfg=0    ctermbg=2    cterm=NONE
+hi DiffChange         ctermfg=0    ctermbg=3    cterm=NONE
+hi DiffDelete         ctermfg=0    ctermbg=1    cterm=NONE
+hi DiffText           ctermfg=2    ctermbg=0    cterm=bold
+
+hi NvimTreeGitDirty   ctermfg=3    ctermbg=NONE cterm=NONE
+hi NvimTreeGitStaged  ctermfg=2    ctermbg=NONE cterm=NONE
+hi NvimTreeGitMerge   ctermfg=1    ctermbg=NONE cterm=NONE
+hi NvimTreeGitRenamed ctermfg=2    ctermbg=NONE cterm=NONE
+hi NvimTreeGitNew     ctermfg=2    ctermbg=NONE cterm=NONE
+hi NvimTreeGitDeleted ctermfg=1    ctermbg=NONE cterm=NONE
 
 " -----------------------------------------------------------------------------
-" search
+" Search
 " -----------------------------------------------------------------------------
 hi Search            ctermfg=0    ctermbg=3    cterm=NONE
 hi SearchInc         ctermfg=0    ctermbg=7    cterm=NONE
 hi Directory         ctermfg=3    ctermbg=NONE cterm=NONE
 
 " -----------------------------------------------------------------------------
-" statusline and prompt 
+" Statusline and prompt 
 " -----------------------------------------------------------------------------
 hi StatusLine        ctermfg=8    ctermbg=0    cterm=NONE
 hi StatusLineNC      ctermfg=20   ctermbg=0    cterm=NONE
@@ -104,7 +112,7 @@ hi ModeMsg           ctermfg=2    ctermbg=NONE cterm=NONE
 hi MoreMsg           ctermfg=2    ctermbg=NONE cterm=NONE
 
 " -----------------------------------------------------------------------------
-" window and tab
+" Window and tab
 " -----------------------------------------------------------------------------
 hi VertSplit         ctermfg=NONE ctermbg=NONE cterm=NONE
 hi ColorColumn       ctermfg=NONE ctermbg=NONE cterm=NONE
@@ -114,15 +122,16 @@ hi TabLineFill       ctermfg=2    ctermbg=NONE cterm=NONE
 hi TabLineSel        ctermfg=0    ctermbg=2    cterm=NONE
 
 " -----------------------------------------------------------------------------
-" pmenu
+" Pmenu
 " -----------------------------------------------------------------------------
 hi Pmenu             ctermfg=7    ctermbg=16   cterm=NONE
-hi PmenuSel          ctermfg=0    ctermbg=3    cterm=NONE
 hi PmenuSbar         ctermfg=NONE ctermbg=18   cterm=NONE
 hi PmenuThumb        ctermfg=NONE ctermbg=8    cterm=NONE
+hi PmenuSel          ctermfg=7    ctermbg=18   cterm=NONE
+
 
 " -----------------------------------------------------------------------------
-" number column
+" Number column
 " -----------------------------------------------------------------------------
 hi Folded            ctermfg=8    ctermbg=NONE cterm=NONE
 hi FoldColumn        ctermfg=20   ctermbg=NONE cterm=NONE
@@ -130,7 +139,7 @@ hi CursorColumn      ctermfg=8    ctermbg=NONE cterm=NONE
 hi SignColumn        ctermfg=3    ctermbg=NONE cterm=NONE
 
 " -----------------------------------------------------------------------------
-" search
+" Search
 " -----------------------------------------------------------------------------
 hi SpellBad          ctermfg=0    ctermbg=1    cterm=NONE
 hi SpellCap          ctermfg=1    ctermbg=NONE cterm=underline
@@ -149,7 +158,7 @@ hi LspDiagnosticsUnderlineWarning     ctermfg=3    ctermbg=NONE cterm=underline
 hi LspDiagnosticsUnderlineInformation ctermfg=8    ctermbg=NONE cterm=underline 
 hi LspDiagnosticsUnderlineHint        ctermfg=2    ctermbg=NONE cterm=underline 
 " -----------------------------------------------------------------------------
-" other
+" Other
 " -----------------------------------------------------------------------------
   hi! link NvimInternalError          Error
 
@@ -158,34 +167,33 @@ hi LspDiagnosticsUnderlineHint        ctermfg=2    ctermbg=NONE cterm=underline
 " =============================================================================
 " extra scheme for plugins {{{
 " =============================================================================
+" -----------------------------------------------------------------------------
+" telescope.nvim/telescope
+" -----------------------------------------------------------------------------
+hi TelescopeNormal         ctermfg=7    ctermbg=0    cterm=NONE
+hi TelescopeBorder         ctermfg=7    ctermbg=16   cterm=NONE
+hi TelescopeTitle          ctermfg=8    ctermbg=16   cterm=NONE
+hi TelescopePromptPrefix   ctermfg=2    ctermbg=16   cterm=NONE
+hi TelescopeSelection      ctermfg=7    ctermbg=NONE cterm=NONE
+hi TelescopeSelectionCaret ctermfg=2    ctermbg=18   cterm=NONE
+hi TelescopeResultsLineNr  ctermfg=8    ctermbg=1    cterm=NONE
+  hi! link TelescopeMatching            Search
+  hi! link TelescopeSelection           PmenuSel
 
 " -----------------------------------------------------------------------------
 " mhinz/vim-signify
 " -----------------------------------------------------------------------------
-hi SignifySignAdd    ctermfg=2    ctermbg=NONE cterm=NONE
-hi SignifySignChange ctermfg=3    ctermbg=NONE cterm=NONE
-hi SignifySignDelete ctermfg=4    ctermbg=NONE cterm=NONE
+  hi! li SignifySignAdd    NvimTreeGitNew
+  hi! li SignifySignChange NvimTreeGitDirty
+  hi! li SignifySignDelete NvimTreeGitDeleted
 
 " -----------------------------------------------------------------------------
-" junegunn/fzf.vim
+" kyazdani42/nvim-tree.lua
 " -----------------------------------------------------------------------------
-hi default fzf1      ctermfg=3    ctermbg=0    guifg=NONE guibg=NONE
-hi default fzf2      ctermfg=8    ctermbg=0    guifg=NONE guibg=NONE
-hi default fzf3      ctermfg=8    ctermbg=0    guifg=NONE guibg=NONE
-
-" -----------------------------------------------------------------------------
-" preservim/nerdtree
-" -----------------------------------------------------------------------------
-hi NERDTreeExecFile  ctermfg=1    ctermbg=NONE cterm=NONE
-hi NERDTreeFlags     ctermfg=8    ctermbg=NONE cterm=NONE
-  hi link NERDTreeDirSlash                     Directory
-  hi link NERDTreeBookmarksLeader              NERDTreeDirSlash
-  hi link NERDTreeGitStatusStaged              SignifySignAdd
-  hi link NERDTreeGitStatusModified            SignifySignChange
-  hi link NERDTreeGitStatusUntracked           SignifySignDelete
-  hi link NERDTreeGitStatusRenamed             SignifySignDelete
-  hi link NERDTreeGitStatusUnmerged            SignifySignDelete
-  hi link NERDTreeGitStatusIgnored             SignifySignDelete
+" hi NvimTreeFolderName       ctermfg=8    ctermbg=NONE cterm=NONE
+" hi NvimTreeOpenedFolderName ctermfg=8    ctermbg=NONE cterm=NONE
+hi NvimTreeEmptyFolderName  ctermfg=8    ctermbg=NONE cterm=NONE
+" hi NvimTreeFolderIcon       ctermfg=8    ctermbg=NONE cterm=NONE
 
 
 " }}}
