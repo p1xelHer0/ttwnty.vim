@@ -79,19 +79,28 @@ hi Ignore            ctermfg=0    ctermbg=8    cterm=NONE
 hi SpecialKey        ctermfg=0    ctermbg=8    cterm=NONE
 
 " -----------------------------------------------------------------------------
-" Diff colors
+" Diff/Git colors
 " -----------------------------------------------------------------------------
 hi DiffAdd            ctermfg=0    ctermbg=2    cterm=NONE
 hi DiffChange         ctermfg=0    ctermbg=3    cterm=NONE
 hi DiffDelete         ctermfg=0    ctermbg=1    cterm=NONE
 hi DiffText           ctermfg=2    ctermbg=0    cterm=bold
 
-hi NvimTreeGitDirty   ctermfg=3    ctermbg=NONE cterm=NONE
-hi NvimTreeGitStaged  ctermfg=2    ctermbg=NONE cterm=NONE
-hi NvimTreeGitMerge   ctermfg=1    ctermbg=NONE cterm=NONE
-hi NvimTreeGitRenamed ctermfg=2    ctermbg=NONE cterm=NONE
-hi NvimTreeGitNew     ctermfg=2    ctermbg=NONE cterm=NONE
-hi NvimTreeGitDeleted ctermfg=1    ctermbg=NONE cterm=NONE
+hi GitAdd             ctermfg=2    ctermbg=NONE cterm=NONE
+hi GitDelete          ctermfg=1    ctermbg=NONE cterm=NONE
+hi GitChange          ctermfg=3    ctermbg=NONE cterm=NONE
+hi GitNew             ctermfg=4    ctermbg=NONE cterm=NONE
+
+  hi! li GitSignsAdd               GitAdd
+  hi! li GitSignsChange            GitChange
+  hi! li GitSignsDelete            GitDelete
+
+  hi! li NvimTreeGitDirty          GitChange
+  hi! li NvimTreeGitStaged         GitNew
+  hi! li NvimTreeGitMerge          GitDelete
+  hi! li NvimTreeGitRenamed        GitAdd
+  hi! li NvimTreeGitNew            GitAdd
+  hi! li NvimTreeGitDeleted        GitDelete
 
 " -----------------------------------------------------------------------------
 " Search
@@ -160,7 +169,7 @@ hi LspDiagnosticsUnderlineHint        ctermfg=2    ctermbg=NONE cterm=underline
 " -----------------------------------------------------------------------------
 " Other
 " -----------------------------------------------------------------------------
-  hi! link NvimInternalError          Error
+  hi! li NvimInternalError          Error
 
 
 " }}}
@@ -177,15 +186,8 @@ hi TelescopePromptPrefix   ctermfg=2    ctermbg=16   cterm=NONE
 hi TelescopeSelection      ctermfg=7    ctermbg=NONE cterm=NONE
 hi TelescopeSelectionCaret ctermfg=2    ctermbg=18   cterm=NONE
 hi TelescopeResultsLineNr  ctermfg=8    ctermbg=1    cterm=NONE
-  hi! link TelescopeMatching            Search
-  hi! link TelescopeSelection           PmenuSel
-
-" -----------------------------------------------------------------------------
-" mhinz/vim-signify
-" -----------------------------------------------------------------------------
-  hi! li SignifySignAdd    NvimTreeGitNew
-  hi! li SignifySignChange NvimTreeGitDirty
-  hi! li SignifySignDelete NvimTreeGitDeleted
+  hi! li TelescopeMatching              Search
+  hi! li TelescopeSelection             PmenuSel
 
 " -----------------------------------------------------------------------------
 " kyazdani42/nvim-tree.lua
